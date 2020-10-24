@@ -72,6 +72,14 @@ public class ArticleController {
 			model.addAttribute("replaceUri", "/usr/member/login");
 			return "common/redirect";
 		}
+		
+		Article article = articleService.getArticleById(id);
+		
+		if ( article.getMemberId() != loginedMemberId ) {
+			model.addAttribute("msg", "권한이 없습니다.");
+			model.addAttribute("historyBack", true);
+			return "common/redirect";
+		}
 
 		articleService.deleteArticleById(id);
 
@@ -93,10 +101,10 @@ public class ArticleController {
 			model.addAttribute("replaceUri", "/usr/member/login");
 			return "common/redirect";
 		}
-		
+
 		Article article = articleService.getArticleById(id);
-		
-		if ( article.getMemberId() != loginedMemberId ) {
+
+		if (article.getMemberId() != loginedMemberId) {
 			model.addAttribute("msg", "권한이 없습니다.");
 			model.addAttribute("historyBack", true);
 			return "common/redirect";
@@ -121,10 +129,10 @@ public class ArticleController {
 			model.addAttribute("replaceUri", "/usr/member/login");
 			return "common/redirect";
 		}
-		
+
 		Article article = articleService.getArticleById(id);
-		
-		if ( article.getMemberId() != loginedMemberId ) {
+
+		if (article.getMemberId() != loginedMemberId) {
 			model.addAttribute("msg", "권한이 없습니다.");
 			model.addAttribute("historyBack", true);
 			return "common/redirect";
