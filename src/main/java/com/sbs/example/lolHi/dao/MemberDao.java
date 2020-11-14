@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.sbs.example.lolHi.dto.Member;
+import com.sbs.example.lolHi.service.Memeber;
 
 @Mapper
 public interface MemberDao {
@@ -16,4 +17,6 @@ public interface MemberDao {
 	Member getMemberById(@Param("id") int id);
 
 	void modify(Map<String, Object> param);
+
+	Member getMemberByNameAndEmail(@Param("name") String name, @Param("email") String email);
 }
