@@ -20,7 +20,7 @@
 
 <c:forEach items="${articles}" var="article">
 	<c:set var="detailUrl"
-		value="/usr/article/detail?id=${article.id}&listUrl=${encodedCurrentUri}" />
+		value="/usr/article-${board.code}/detail?id=${article.id}&listUrl=${encodedCurrentUri}" />
 	<div>
 		번호 :
 		<a href="${detailUrl}">${article.id}</a>
