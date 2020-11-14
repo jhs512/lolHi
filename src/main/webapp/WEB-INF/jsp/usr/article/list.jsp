@@ -22,12 +22,9 @@
 	<c:set var="detailUrl"
 		value="/usr/article-${board.code}/detail?id=${article.id}&listUrl=${encodedCurrentUri}" />
 	<div>
-		번호 :
-		<a href="${detailUrl}">${article.id}</a>
-		<br /> 작성날짜 : ${article.regDate} <br /> 작성자 :
-		${article.extra.writer} <br /> 갱신날짜 : ${article.updateDate} <br />
-		제목 :
-		<a href="${detailUrl}">${article.title}</a>
+		번호 : <a href="${detailUrl}">${article.id}</a> <br /> 작성날짜 :
+		${article.regDate} <br /> 작성자 : ${article.extra.writer} <br /> 갱신날짜
+		: ${article.updateDate} <br /> 제목 : <a href="${detailUrl}">${article.title}</a>
 		<br /> 작업 :
 		<c:if test="${article.extra.actorCanDelete}">
 			<a onclick="if ( confirm('삭제하시겠습니까?') == false ) return false;"
@@ -57,6 +54,10 @@
 
 	<!-- 마지막 페이지로 이동버튼이 노출될 필요가 있는지 여부 -->
 	<c:set var="goLastBtnNeedToShow" value="true" />
+	
+	<c:if test="${0 == totalPage}">
+		<c:set var="goFirstBtnNeedToShow" value="false" />
+	</c:if>
 
 	<!-- 첫 페이지로 이동버튼이 노출될 필요가 있다면 노출 -->
 	<c:if test="${goFirstBtnNeedToShow}">
@@ -73,6 +74,10 @@
 			<c:set var="goLastBtnNeedToShow" value="false" />
 		</c:if>
 	</c:forEach>
+
+	<c:if test="${0 == totalPage}">
+		<c:set var="goLastBtnNeedToShow" value="false" />
+	</c:if>
 
 	<!-- 마지막 페이지로 이동버튼이 노출될 필요가 있다면 노출 -->
 	<c:if test="${goLastBtnNeedToShow}">
