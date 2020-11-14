@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.sbs.example.lolHi.dto.Member;
-import com.sbs.example.lolHi.service.Memeber;
 
 @Mapper
 public interface MemberDao {
