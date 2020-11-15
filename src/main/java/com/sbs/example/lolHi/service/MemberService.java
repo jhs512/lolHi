@@ -106,9 +106,9 @@ public class MemberService {
 		if (sendResultData.isFail()) {
 			return new ResultData("F-1", "메일발송에 실패했습니다.");
 		}
-
+		
 		Map<String, Object> modifyParam = new HashMap<>();
-		modifyParam.put("loginPw", tempLoginPw);
+		modifyParam.put("loginPw", Util.sha256(tempLoginPw));
 		modifyParam.put("id", member.getId());
 		memberDao.modify(modifyParam);
 
